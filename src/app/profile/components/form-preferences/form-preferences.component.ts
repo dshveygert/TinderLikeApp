@@ -33,9 +33,9 @@ export class FormPreferencesComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       gender: ['not_specified'],
       age: [25, [Validators.required, Validators.min(18), Validators.max(100)]],
-      height: [175, [Validators.required, Validators.min(1), Validators.max(300)]],
-      weight: [50, [Validators.required, Validators.min(1), Validators.max(500)]],
-      match_accuracy: [75, [Validators.required, Validators.min(1), Validators.max(100)]],
+      height: [175, [Validators.min(1), Validators.max(300)]],
+      weight: [50, [Validators.min(1), Validators.max(500)]],
+      match_accuracy: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
       is_clear: [false, [Validators.requiredTrue]]
     });
     if (isObservable(this.data)) {
