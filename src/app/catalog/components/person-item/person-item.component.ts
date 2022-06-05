@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 })
 export class PersonItemComponent {
   @Input() person: IPerson;
+  @Input() isMatchedNotification: boolean;
   @Input() counter: Observable<number>;
   @Input() loading: Observable<boolean>;
   @Output() like = new EventEmitter();

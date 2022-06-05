@@ -14,6 +14,7 @@ import {fullUnsubscribe} from "../../../../utils";
 export class CatalogComponent implements OnInit, OnDestroy {
   public item: IPerson;
   private dataSub: SubscriptionLike[] = [];
+  private _isMatched = false;
 
   get emptyTitle(): string {
     return this.list.currentIndex > 0 ? 'List is empty' : 'Nothing was found';
@@ -27,7 +28,12 @@ export class CatalogComponent implements OnInit, OnDestroy {
     return this.list.data$.pipe(map(list => list?.length));
   }
 
+  get isMatched(): boolean {
+    return this._isMatched;
+  }
+
   public nextAction(): void {
+    this._isMatched = false;
     this.list.nextPerson();
   }
 
@@ -40,6 +46,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   }
 
   public disLikeAction(person: IPerson): void {
+    this._isMatched = false;
     this.action('dislike', person.id);
   }
 
@@ -51,6 +58,9 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.list.loading = true;
     this.dataSub.push(this.actions.personFeedback(type, id).pipe(first(), tap(status => {
       this.list.updateMatches(id, status);
+      if (status?.matched === true) {
+        this._isMatched = true;
+      }
     }), finalize(() => this.list.loading = false)).subscribe());
   }
 
@@ -60,6 +70,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.list.destroy();
+    this._isMatched = false;
     fullUnsubscribe(this.dataSub);
   }
 
