@@ -2,26 +2,80 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-## Development server
+Used node.js v.14.17 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Deployed on [http://api.shveygert.de:34207](http://api.shveygert.de:34207/)
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+There are two pages: *Catalog* and *Profile*.
 
-## Build
+In **Catalog** User is offered a list of people who match his/her preferences. User can Like or Dislike person. If the likes are matched, the person is marked with "You got match!" and photo marked with blue border.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The button "Okay" provide to the next person.
 
-## Running unit tests
+In **Profile** User can change preferences. "Match accuracy" input allows you to adjust the value of the match in percent. The matching is calculated by the age and gender fields. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+When you update the preferences, all the history of likes/dislikes/matches is deleted.
 
-## Running end-to-end tests
+## API
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Endpoints:
 
-## Further help
+**GET /profile/preferences** - User`s preferences
+```
+{
+  gender: 'male' | 'female' | 'not_specified';
+  age: number;
+  height: number;
+  weight: number;
+  match_accuracy: number;
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**POST /profile/preferences** - Save User`s preferences
+```
+{
+  gender: 'male' | 'female' | 'not_specified';
+  age: number;
+  height: number;
+  weight: number;
+  match_accuracy: number;
+}
+```
+
+**GET /catalog/persons** - List of people
+```
+{
+  id: number;
+  name: string;
+  age: number;
+  height: number;
+  weight: number;
+  gender: 'male' | 'female' | 'not_specified';
+  photo: string;
+  status?: {
+    matched: boolean;
+    liked: boolean;
+    disliked: boolean;
+  }
+}
+```
+
+**POST /catalog/feedback/{'like' | 'dislike'}** - Save like/dislike for person
+```
+{
+  id: number;
+}
+```
+
+Headers: 
+
+To identify the user, the parameter *TinderUserUUID* is used in the HTTP headers.
+
+When you first enter the site, a UUID is created and stored in the local storage. All subsequent requests to the server are signed with this UUID.
+
+
+##
+### Disclaimer
+*All of the people featured on the site are made up at random, the characteristics of each person are chosen at random. All match marks are offered at random. Photos are taken from public sources and are in no way associated with the profiles of people on the site.*
