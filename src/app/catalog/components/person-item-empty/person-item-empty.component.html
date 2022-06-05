@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{title}}</mat-card-title>
+  </mat-card-header>
+  <div class="card-image-wrapper">
+    <div class="empty">
+      <mat-icon aria-hidden="false" aria-label="search">search</mat-icon>
+    </div>
+  </div>
+  <mat-card-content></mat-card-content>
+  <mat-card-actions>
+    <div class="navigation"></div>
+    <div class="actions">
+      <button mat-raised-button (click)="toProfileHandler()">Set preferences</button>
+      <button mat-raised-button color="primary" (click)="startHandler()" *ngIf="(counter|async) > 0">Watch again</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

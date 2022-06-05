@@ -1,0 +1,36 @@
+<mat-card class="example-card">
+  <mat-card-header [class.disliked]="isDisliked">
+    <mat-card-title>{{person.name}}</mat-card-title>
+  </mat-card-header>
+  <div class="card-image-wrapper" [class.matched]="isMatched" [class.disliked]="isDisliked">
+    <div class="card-image-background"  [ngStyle]="bgImage"></div>
+    <img mat-card-image [src]="person.photo" [alt]="person.name">
+  </div>
+  <mat-card-content>
+    <div class="person-data">
+      <div class="person-data-item">
+        <div class="label">Age:</div>
+        <div class="value">{{person.age}}</div>
+      </div>
+      <div class="person-data-item">
+        <div class="label">Height:</div>
+        <div class="value">{{person.height}}</div>
+      </div>
+      <div class="person-data-item">
+        <div class="label">Weight:</div>
+        <div class="value">{{person.weight}}</div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="navigation">
+      <button mat-icon-button aria-label="back" *ngIf="(counter|async) > 0" (click)="backHandler()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="dislikeHandler()" [disabled]="isDisabled|async">{{dislikeButtonText}}</button>
+      <button mat-raised-button color="primary" (click)="likeHandler()" [disabled]="isDisabled|async">{{likeButtonText}}</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

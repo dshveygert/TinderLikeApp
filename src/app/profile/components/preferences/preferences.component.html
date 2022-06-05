@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+<h2>My preferences</h2>
+<app-loading
+  [loading]="preferences.loading$"
+></app-loading>
+<app-form-preferences
+  [data]="preferences.data$"
+  (formSubmit)="preferences.savePreferences($event)"
+>
+</app-form-preferences>

@@ -1,0 +1,16 @@
+\:host {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  margin-bottom: 48px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}

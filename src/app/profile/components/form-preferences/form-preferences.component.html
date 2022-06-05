@@ -1,0 +1,30 @@
+<form [formGroup]='formGroup' (ngSubmit)='submitForm()'>
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName='gender'>
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+      <mat-option value="not_specified">Not specified</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Age</mat-label>
+    <input matInput formControlName='age' type="number" step="1"/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Height</mat-label>
+    <input matInput formControlName='height' type="number" step="1"/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Weight</mat-label>
+    <input matInput formControlName='weight' type="number" step="1"/>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Match accuracy, %</mat-label>
+    <input matInput formControlName='match_accuracy' type="number" step="1"/>
+  </mat-form-field>
+  <mat-checkbox formControlName="is_clear">Changes will clear all my likes/dislikes</mat-checkbox>
+  <div class="button-wrapper">
+    <button mat-button type="submit" mat-raised-button color="primary" [disabled]="isDisabled">Save</button>
+  </div>
+</form>
