@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { IPreferences } from "../models";
+import { IPreferences } from '../models';
 
 @Injectable()
 export class ProfileApi {
@@ -16,6 +16,5 @@ export class ProfileApi {
     return this.http.post<IPreferences>(`${this.api}/preferences`, data);
   }
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 }

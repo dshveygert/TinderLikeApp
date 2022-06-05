@@ -9,10 +9,9 @@ describe('FormPreferencesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormPreferencesComponent],
-      providers: [ FormBuilder ]
-    })
-    .compileComponents();
+      declarations: [FormPreferencesComponent],
+      providers: [FormBuilder],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,12 +1,18 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {IPerson, IStatus} from "../../../api/models";
-import {Observable} from "rxjs";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+import { IPerson, IStatus } from '../../../api/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-person-item',
   templateUrl: './person-item.component.html',
   styleUrls: ['./person-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonItemComponent {
   @Input() person: IPerson;
@@ -23,7 +29,7 @@ export class PersonItemComponent {
   private _next = 'Okay';
 
   get bgImage(): object {
-    return {'background-image': `url("${this.person?.photo}")`};
+    return { 'background-image': `url("${this.person?.photo}")` };
   }
 
   get status(): IStatus | null {
@@ -39,7 +45,7 @@ export class PersonItemComponent {
   }
 
   get isMatched(): boolean {
-    return this.status?.matched && this.status?.liked || false;
+    return (this.status?.matched && this.status?.liked) || false;
   }
 
   get isDisliked(): boolean {
@@ -62,6 +68,5 @@ export class PersonItemComponent {
     this.back.emit();
   }
 
-  constructor() { }
-
+  constructor() {}
 }

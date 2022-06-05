@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import {Collection, fullUnsubscribe} from "../../../utils";
-import {IPerson, IStatus} from "../../api/models";
+import { Collection, fullUnsubscribe } from '../../../utils';
+import { IPerson, IStatus } from '../../api/models';
 import {
   catchError,
-  combineLatest, finalize,
+  combineLatest,
+  finalize,
   map,
   Observable,
   of,
   ReplaySubject,
   startWith,
   SubscriptionLike,
-  tap
-} from "rxjs";
-import {CatalogApi} from "../../api/methods";
+  tap,
+} from 'rxjs';
+import { CatalogApi } from '../../api/methods';
 
 @Injectable()
 export class PersonListService extends Collection<IPerson[]> {
@@ -34,15 +35,21 @@ export class PersonListService extends Collection<IPerson[]> {
   }
 
   get currentPerson$(): Observable<IPerson[]> {
-    return combineLatest([this.data$, this.currentIndex$]).pipe(map(([data, index]) => {
-      return !!data[index] ? [data[index]] : [];
-    }));
+    return combineLatest([this.data$, this.currentIndex$]).pipe(
+      map(([data, index]) => {
+        return !!data[index] ? [data[index]] : [];
+      })
+    );
   }
 
   private personsData(): Observable<IPerson[]> {
-    return this.api.persons().pipe(tap((data => {
-      this.data = data;
-    })), catchError(this.dataCatchError), finalize(() => this.loading = false));
+    return this.api.persons().pipe(
+      tap(data => {
+        this.data = data;
+      }),
+      catchError(this.dataCatchError),
+      finalize(() => (this.loading = false))
+    );
   }
 
   private dataCatchError = (error: Error): Observable<any> => {
@@ -62,7 +69,7 @@ export class PersonListService extends Collection<IPerson[]> {
   public updateMatches(id: number, status: IStatus): void {
     const index = this.data.findIndex(item => item.id === id);
     const newData = [...this.data];
-    newData[index] = {...this.data[index], status};
+    newData[index] = { ...this.data[index], status };
     this.data = newData;
   }
 

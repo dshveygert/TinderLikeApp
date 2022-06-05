@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   api: {
-    host: 'http://api.shveygert.de:37013'
-  }
+    host: 'http://api.shveygert.de:37013',
+  },
 };
 
 /*

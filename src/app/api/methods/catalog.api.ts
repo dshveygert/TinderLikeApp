@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import {IPerson, IStatus} from "../models";
+import { IPerson, IStatus } from '../models';
 
 @Injectable()
 export class CatalogApi {
@@ -12,10 +12,14 @@ export class CatalogApi {
     return this.http.get<IPerson[]>(`${this.api}/persons`);
   }
 
-  public personFeedback(action: 'like' | 'dislike', personId: number): Observable<IStatus> {
-    return this.http.post<IStatus>(`${this.api}/feedback/${action}`, {id: personId});
+  public personFeedback(
+    action: 'like' | 'dislike',
+    personId: number
+  ): Observable<IStatus> {
+    return this.http.post<IStatus>(`${this.api}/feedback/${action}`, {
+      id: personId,
+    });
   }
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 }

@@ -18,6 +18,5 @@ export function localStorageSetItem(key: string, data: string): void {
 export function localStorageRemoveItem(key: string): void {
   try {
     localStorage.removeItem(key);
-  } catch (e) {
-  }
+  } catch (e) {}
 }

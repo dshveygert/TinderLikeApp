@@ -1,19 +1,22 @@
 .card-image-wrapper {
   border: 4px solid #fff;
   position: relative;
+
   &.matched {
     border-color: #3f51b5;
-    box-shadow: 0 0 12px 1px rgba(63,81,181,0.5);
+    box-shadow: 0 0 12px 1px rgba(63, 81, 181, 0.5);
   }
+
   &.disliked {
     opacity: 0.7;
   }
 }
+
 .card-image-matched {
   position: absolute;
   background: #3f51b5;
   border-color: #3f51b5;
-  box-shadow: 0 0 12px 1px rgba(63,81,181,0.5);
+  box-shadow: 0 0 12px 1px rgba(63, 81, 181, 0.5);
   color: #ffffff;
   padding: 8px 16px;
   font-size: 20px;
@@ -23,25 +26,31 @@
   top: 1vh;
   right: 1vh;
 }
+
 .disliked {
   .mat-card-title {
     color: darkgray;
   }
 }
+
 .person-data {
   display: flex;
   padding: 16px 16px 0;
+
   &-item {
     margin: 0 16px 16px 0;
     font-size: 16px;
+
     .label {
       margin-bottom: 5px;
     }
+
     .value {
       font-weight: bold;
     }
   }
 }
+
 .actions,
 .navigation {
   min-height: 45px;

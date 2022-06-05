@@ -1,12 +1,19 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
-import {Observable} from "rxjs";
-import {Router} from "@angular/router";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+} from '@angular/core';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-item-empty',
   templateUrl: './person-item-empty.component.html',
   styleUrls: ['./person-item-empty.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonItemEmptyComponent implements OnDestroy {
   @Input() title: string;
@@ -25,6 +32,5 @@ export class PersonItemEmptyComponent implements OnDestroy {
     this.startHandler();
   }
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router) {}
 }

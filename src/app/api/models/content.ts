@@ -1,9 +1,11 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 export interface ICollection<T = any> {
   data: T;
   data$: Observable<T>;
+
   init?(...params: any): void;
+
   destroy?(): void;
 }
 
@@ -34,7 +36,7 @@ export interface IPreferences {
 
 export enum ELocalStorage {
   preferences = 'preferences',
-  uuid = 'uuid'
+  uuid = 'uuid',
 }
 
 export type Gender = 'male' | 'female' | 'not_specified';

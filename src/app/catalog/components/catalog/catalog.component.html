@@ -1,25 +1,25 @@
 <app-loading
-  [loading]="list.loading$"
+  [loading]='list.loading$'
 ></app-loading>
-<ng-container *ngIf="list.currentPerson$|async as data">
-  <ng-container *ngIf="data?.length > 0; else empty">
+<ng-container *ngIf='list.currentPerson$|async as data'>
+  <ng-container *ngIf='data?.length > 0; else empty'>
     <app-person-item
-      *ngFor="let item of data; trackBy: list.trackByFn"
-      [person]="item"
-      [counter]="currentIndex"
-      [loading]="list.loading$"
-      [isMatchedNotification]="isMatched"
-      (next)="nextAction()"
-      (like)="likeAction(item)"
-      (disLike)="disLikeAction(item)"
-      (back)="backAction()"
+      *ngFor='let item of data; trackBy: list.trackByFn'
+      [person]='item'
+      [counter]='currentIndex'
+      [loading]='list.loading$'
+      [isMatchedNotification]='isMatched'
+      (next)='nextAction()'
+      (like)='likeAction(item)'
+      (disLike)='disLikeAction(item)'
+      (back)='backAction()'
     ></app-person-item>
   </ng-container>
 </ng-container>
 <ng-template #empty>
   <app-person-item-empty
-    [title]="emptyTitle"
-    [counter]="counter$"
-    (start)="resetCounter()"
+    [title]='emptyTitle'
+    [counter]='counter$'
+    (start)='resetCounter()'
   ></app-person-item-empty>
 </ng-template>

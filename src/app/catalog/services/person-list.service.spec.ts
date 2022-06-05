@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { PersonListService } from './person-list.service';
-import { ApiModule } from "../../api/api.module";
+import { ApiModule } from '../../api/api.module';
 
 describe('PersonListService', () => {
   let service: PersonListService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ ApiModule ],
-      providers: [ PersonListService ]
+      imports: [ApiModule],
+      providers: [PersonListService],
     });
     service = TestBed.inject(PersonListService);
   });

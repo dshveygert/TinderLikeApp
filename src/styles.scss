@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 h1 {
   color: #3f51b5;
@@ -9,6 +15,7 @@ h1 {
 
 a {
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -16,26 +23,31 @@ a {
 
 .mat-card {
   margin-bottom: 16px;
+
   &-content {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     min-height: 78px;
   }
+
   &-actions {
     display: flex !important;
     justify-content: space-between;
     margin-bottom: 0 !important;
   }
+
   &-header {
     .mat-card-title {
       color: #3f51b5;
       font-size: 26px;
     }
   }
+
   .card-image-wrapper {
     position: relative;
     z-index: 1;
     height: 50vh;
     overflow: hidden;
+
     .card-image-background {
       filter: blur(14px);
       background-size: cover;
