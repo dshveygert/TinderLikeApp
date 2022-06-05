@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {catchError, finalize, first, Observable, of, SubscriptionLike, tap} from 'rxjs';
+import { catchError, finalize, first, Observable, of, SubscriptionLike, tap } from 'rxjs';
 import { Collection, fullUnsubscribe } from 'src/utils';
 import { IPreferences } from "../../api/models";
-import {ProfileApi} from "../../api/methods";
+import { ProfileApi } from "../../api/methods";
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})

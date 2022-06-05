@@ -1,25 +1,25 @@
 <mat-card class="example-card">
   <mat-card-header [class.disliked]="isDisliked">
-    <mat-card-title>{{person.name}}</mat-card-title>
+    <mat-card-title>{{person?.name}}</mat-card-title>
   </mat-card-header>
   <div class="card-image-wrapper" [class.matched]="isMatched" [class.disliked]="isDisliked">
     <div class="card-image-background"  [ngStyle]="bgImage"></div>
-    <img mat-card-image [src]="person.photo" [alt]="person.name">
+    <img mat-card-image [src]="person?.photo" [alt]="person?.name">
     <div class="card-image-matched" *ngIf="isMatchedNotification">You got match!</div>
   </div>
   <mat-card-content>
     <div class="person-data">
       <div class="person-data-item">
         <div class="label">Age:</div>
-        <div class="value">{{person.age}}</div>
+        <div class="value">{{person?.age}}</div>
       </div>
       <div class="person-data-item">
         <div class="label">Height:</div>
-        <div class="value">{{person.height}}</div>
+        <div class="value">{{person?.height}}</div>
       </div>
       <div class="person-data-item">
         <div class="label">Weight:</div>
-        <div class="value">{{person.weight}}</div>
+        <div class="value">{{person?.weight}}</div>
       </div>
     </div>
   </mat-card-content>

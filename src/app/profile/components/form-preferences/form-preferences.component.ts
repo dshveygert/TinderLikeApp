@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, SubscriptionLike, tap} from 'rxjs';
+import { Observable, SubscriptionLike, tap, isObservable} from 'rxjs';
 import { formGroupTrim, fullUnsubscribe } from 'src/utils';
 import { IPreferences } from "../../../api/models";
 
@@ -38,10 +38,11 @@ export class FormPreferencesComponent implements OnInit, OnDestroy {
       match_accuracy: [75, [Validators.required, Validators.min(1), Validators.max(100)]],
       is_clear: [false, [Validators.requiredTrue]]
     });
-
-    this.dataSub.push(this.data.pipe(tap(match => {
-      this.formGroup.patchValue(match);
-    })).subscribe());
+    if (isObservable(this.data)) {
+      this.dataSub.push(this.data.pipe(tap(match => {
+        this.formGroup.patchValue(match);
+      })).subscribe());
+    }
   }
 
   ngOnDestroy(): void {

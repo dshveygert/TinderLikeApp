@@ -12,7 +12,6 @@ import {
   SubscriptionLike,
   tap
 } from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
 import {CatalogApi} from "../../api/methods";
 
 @Injectable()

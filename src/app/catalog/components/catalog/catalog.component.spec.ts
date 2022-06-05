@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CatalogComponent } from './catalog.component';
+import { PersonActionsService } from "../../services/person-actions.service";
+import { PersonListService } from "../../services/person-list.service";
+import { ApiModule } from "../../../api/api.module";
 
 describe('CatalogComponent', () => {
   let component: CatalogComponent;
@@ -8,7 +11,9 @@ describe('CatalogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogComponent ]
+      imports: [ ApiModule ],
+      declarations: [ CatalogComponent ],
+      providers: [ PersonActionsService, PersonListService ]
     })
     .compileComponents();
   });

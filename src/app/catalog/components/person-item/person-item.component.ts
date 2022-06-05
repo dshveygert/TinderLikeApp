@@ -23,11 +23,11 @@ export class PersonItemComponent {
   private _next = 'Okay';
 
   get bgImage(): object {
-    return {'background-image': `url("${this.person.photo}")`};
+    return {'background-image': `url("${this.person?.photo}")`};
   }
 
   get status(): IStatus | null {
-    return this.person.status ?? null;
+    return this.person?.status ?? null;
   }
 
   get dislikeButtonText(): string {

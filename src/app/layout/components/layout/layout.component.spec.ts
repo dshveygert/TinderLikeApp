@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
+import { PreferencesService } from "../../../profile/services/preferences.service";
+import { ApiModule } from "../../../api/api.module";
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -8,7 +10,9 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutComponent ]
+      imports: [ ApiModule ],
+      declarations: [ LayoutComponent ],
+      providers: [ PreferencesService ]
     })
     .compileComponents();
   });

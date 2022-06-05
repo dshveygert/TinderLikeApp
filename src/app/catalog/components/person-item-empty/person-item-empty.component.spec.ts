@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PersonItemEmptyComponent } from './person-item-empty.component';
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe('PersonItemComponent', () => {
   let component: PersonItemEmptyComponent;
@@ -8,6 +9,7 @@ describe('PersonItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ RouterTestingModule ],
       declarations: [ PersonItemEmptyComponent ]
     })
     .compileComponents();

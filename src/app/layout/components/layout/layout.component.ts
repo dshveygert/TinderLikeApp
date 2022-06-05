@@ -16,5 +16,4 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
   constructor(private preferences: PreferencesService) { }
-
 }
