@@ -12,6 +12,7 @@ import { Collection, fullUnsubscribe } from 'src/utils';
 import { IPreferences } from '../../api/models';
 import { ProfileApi } from '../../api/methods';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '../../shared/services/notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class PreferencesService extends Collection<IPreferences> {
@@ -35,11 +36,15 @@ export class PreferencesService extends Collection<IPreferences> {
   }
 
   private dataCatchError = (error: Error): Observable<any> => {
-    console.log('error', error);
     if (error instanceof HttpErrorResponse && error?.status === 404) {
       if (error.error?.code === 100001) {
         this.data = this.initialData;
+        this.notification.notify(
+          'Your profile has been set to default preferences.'
+        );
       }
+    } else {
+      this.notification.notify('Unknown Error');
     }
     return of({});
   };
@@ -69,7 +74,10 @@ export class PreferencesService extends Collection<IPreferences> {
     fullUnsubscribe(this.dataSub);
   }
 
-  constructor(private api: ProfileApi) {
+  constructor(
+    private api: ProfileApi,
+    private notification: NotificationService
+  ) {
     super();
   }
 }

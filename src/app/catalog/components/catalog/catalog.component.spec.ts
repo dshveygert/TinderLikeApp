@@ -4,6 +4,7 @@ import { CatalogComponent } from './catalog.component';
 import { PersonActionsService } from '../../services/person-actions.service';
 import { PersonListService } from '../../services/person-list.service';
 import { ApiModule } from '../../../api/api.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('CatalogComponent', () => {
   let component: CatalogComponent;
@@ -11,7 +12,7 @@ describe('CatalogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApiModule],
+      imports: [ApiModule, MatSnackBarModule],
       declarations: [CatalogComponent],
       providers: [PersonActionsService, PersonListService],
     }).compileComponents();

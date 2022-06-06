@@ -10,7 +10,7 @@ Deployed on [http://api.shveygert.de:34207](http://api.shveygert.de:34207/)
 
 There are two pages: *Catalog* and *Profile*.
 
-In **Catalog** User is offered a list of people who match his/her preferences. User can Like or Dislike person. If the likes are matched, the person is marked with "You got match!" and photo marked with blue border.
+In **Catalog** User is offered a list of people who match his/her preferences. User can Like or Dislike person. If the likes are matched, the person is marked with "You got match!" and photo marked with blue border. The Database includes only 30 randomly generated persons.
 
 The button "Okay" provide to the next person.
 

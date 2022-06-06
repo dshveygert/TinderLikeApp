@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PreferencesComponent } from './preferences.component';
 import { ApiModule } from '../../../api/api.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('PreferencesComponent', () => {
   let component: PreferencesComponent;
@@ -9,8 +10,8 @@ describe('PreferencesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApiModule],
-      declarations: [PreferencesComponent],
+      imports: [ApiModule, MatSnackBarModule],
+      declarations: [PreferencesComponent]
     }).compileComponents();
   });
 

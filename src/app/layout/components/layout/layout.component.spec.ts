@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LayoutComponent } from './layout.component';
 import { PreferencesService } from '../../../profile/services/preferences.service';
 import { ApiModule } from '../../../api/api.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -10,7 +11,7 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApiModule],
+      imports: [ApiModule, MatSnackBarModule],
       declarations: [LayoutComponent],
       providers: [PreferencesService],
     }).compileComponents();

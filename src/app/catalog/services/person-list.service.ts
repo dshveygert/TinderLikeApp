@@ -14,6 +14,7 @@ import {
   tap,
 } from 'rxjs';
 import { CatalogApi } from '../../api/methods';
+import { NotificationService } from '../../shared/services/notification.service';
 
 @Injectable()
 export class PersonListService extends Collection<IPerson[]> {
@@ -38,7 +39,8 @@ export class PersonListService extends Collection<IPerson[]> {
     return combineLatest([this.data$, this.currentIndex$]).pipe(
       map(([data, index]) => {
         return !!data[index] ? [data[index]] : [];
-      })
+      }),
+      startWith([])
     );
   }
 
@@ -53,7 +55,7 @@ export class PersonListService extends Collection<IPerson[]> {
   }
 
   private dataCatchError = (error: Error): Observable<any> => {
-    console.log('error', error);
+    this.notification.notify('Unknown Error');
     return of({});
   };
 
@@ -85,7 +87,7 @@ export class PersonListService extends Collection<IPerson[]> {
     this.currentIndex = 0;
   }
 
-  constructor(private api: CatalogApi) {
+  constructor(private api: CatalogApi, private notification: NotificationService) {
     super();
   }
 }
