@@ -26,7 +26,7 @@ export class PersonItemComponent {
 
   private _like = 'LIKE';
   private _dislike = 'DISLIKE';
-  private _next = 'Okay';
+  private _next = 'Okay, next';
 
   get bgImage(): object {
     return { 'background-image': `url("${this.person?.photo}")` };

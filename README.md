@@ -6,7 +6,20 @@ Used node.js v.14.17
 
 Deployed on [http://api.shveygert.de:34207](http://api.shveygert.de:34207/)
 
-## Description
+## Assignment
+
+```
+Needs to implement a fully tested and production ready prototype of a Tinder-like application.
+The Okay button leads a user “swiping” further.
+Needs only the like-dislike part of the app -- registration, profiles, etc must be skipped.
+The client-backend communication contract must be provided by you in a readme file. Please provide the backend specification(REST API or what you prefer).
+Angular material must be used.
+Errors and borderline cases must be taken into account, at least the case the person profiles are run out.
+The test assignment must be production ready - no code changes needed to run it on different stages/environments.
+Unit tests must be provided, coverage 100% overall.
+```
+
+## Solution
 
 There are two pages: *Catalog* and *Profile*.
 
