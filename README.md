@@ -2,7 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-Used node.js v.14.17 
+Used node.js v.14.17
+
+Deployed on [http://api.shveygert.de:34207](http://api.shveygert.de:34207/)
 
 ## Assignment
 
